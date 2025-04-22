@@ -38,10 +38,10 @@ An **Employee Management System** built using **Java**, **Spring Boot**, **Hiber
 
 2. **Set up MySQL Database**:
    
-    Create a new database in MySQL (e.g., `employee_management_db`).
+    Create a new database in MySQL (e.g., `employee_management_system`).
 
     ```sql
-    CREATE DATABASE employee_management_db;
+    CREATE DATABASE employee_management_system;
     ```
 
 3. **Configure application.properties**:
@@ -49,14 +49,19 @@ An **Employee Management System** built using **Java**, **Spring Boot**, **Hiber
     Open `src/main/resources/application.properties` and set the following database properties:
 
     ```properties
-    spring.datasource.url=jdbc:mysql://localhost:3306/employee_management_db
+    spring.application.name=Employee Management System
+    spring.datasource.url=jdbc:mysql://localhost:3306/employee_management_system  # Updated DB name
     spring.datasource.username=root
-    spring.datasource.password=yourpassword
-    spring.jpa.hibernate.ddl-auto=update
+    spring.datasource.password=root  # Update with your MySQL password
     spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+    spring.jpa.hibernate.ddl-auto=update
+    spring.devtools.restart.enabled=true
+    server.port=8082  # Updated port
+    debug=true
     ```
 
-    Replace `yourpassword` with your MySQL password.
+    Ensure you replace `root` with your MySQL username and password if different.
 
 4. **Run the application**:
 
@@ -68,7 +73,7 @@ An **Employee Management System** built using **Java**, **Spring Boot**, **Hiber
 
 5. **Access the Application**:
 
-    Once the application is running, you can access it through `http://localhost:8080`.
+    Once the application is running, you can access it through `http://localhost:8082`.
 
 ### Running Tests
 
